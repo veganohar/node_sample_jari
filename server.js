@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+
+
+app.use(bodyParser.json());
 
 app.listen(port,()=>{
     console.log("Your Application is running on port " + port);
@@ -24,4 +28,8 @@ app.put("/putMethod",(req,res)=>{
 
 app.delete("/deleteMethod",(req,res)=>{
     res.send("Delete Method is Working");
+})
+
+app.post("/dataBody",(req,res)=>{
+    res.send(req.body);    
 })
